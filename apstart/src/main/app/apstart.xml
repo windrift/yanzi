@@ -11,10 +11,10 @@ http://www.mulesoft.org/schema/mule/jersey http://www.mulesoft.org/schema/mule/j
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     <http:request-config name="UNITED_rest_Request_Configuration" host="mu.mulesoft-training.com" port="80" basePath="essentials/united/flights" doc:name="HTTP Request Configuration"/>
-    <http:request-config name="BANK_rest_Request_Configuration" host="anypoint.mulesoft.com" port="80" basePath="apiplatform/repository/v2/organizations/fd604b43-365c-42e8-810f-733a2b7f411f/public/apis/9565/versions/26302/files/root" doc:name="HTTP Request Configuration"/>
+    <http:request-config name="BANK_rest_Request_Configuration" host="anypoint.mulesoft.com" port="443" basePath="/" doc:name="HTTP Request Configuration" protocol="HTTPS"/>
     <flow name="getBankAccountFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/bank" allowedMethods="GET" doc:name="HTTP"/>
-        <http:request config-ref="BANK_rest_Request_Configuration" path="/" method="GET" doc:name="HTTP"/>
+        <http:request config-ref="BANK_rest_Request_Configuration" path="apiplatform/repository/v2/organizations/fd604b43-365c-42e8-810f-733a2b7f411f/public/apis/9565/versions/26302/files/root" method="GET" doc:name="HTTP"/>
     </flow>
     <flow name="getUnitedFlightsFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/united" allowedMethods="GET" doc:name="HTTP"/>
