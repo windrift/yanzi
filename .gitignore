@@ -14,4 +14,7 @@ hs_err_pid*
 #eclipse project
 .project
 .metadata/
-*/target
+apstart/target
+apstart/catalog/
+apstart/studio_id.xml
+
